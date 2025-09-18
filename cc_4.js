@@ -31,6 +31,18 @@ for (let product of products) {
     let promoPrice = product.price * (1 - discount);
     product.promoPrice = promoPrice;
     console.log(`The promo price for ${product.name} is $${promoPrice.toFixed(2)}`);
-
     }
+let customerType = "student";
+if (customerType === "student") {
+    total *= .95; 
+}  if (customerType === "senior") {
+    total *= .93;
+} else {
+  
+}
+
+
+
+
+
 
