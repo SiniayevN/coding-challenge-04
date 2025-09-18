@@ -6,7 +6,7 @@ let products = [
     { name: "ChapStick", category: "Default", price: 5, inventory: 200 },
 ]
 //Step 2 done
-
+let subtotal = 0;
 for (let product of products) {
     let discount = 0;
     switch (product.category) {
@@ -32,13 +32,22 @@ for (let product of products) {
     product.promoPrice = promoPrice;
     console.log(`The promo price for ${product.name} is $${promoPrice.toFixed(2)}`);
     }
-let customerType = "student";
-if (customerType === "student") {
-    total *= .95; 
-}  if (customerType === "senior") {
-    total *= .93;
-} else {
-  
+
+
+let customerTypes = ["regular", "senior", "student"];
+
+for (let customerType of customerTypes) {
+    let total = subtotal;
+
+    if (customerType === "student") {
+        total *= 0.95; 
+    } else if (customerType === "senior") {
+        total *= 0.93; 
+    } else {
+       
+    }
+    
+    console.log(`Final total for ${customerType}: $${total.toFixed(2)}`);
 }
 
 
