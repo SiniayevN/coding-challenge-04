@@ -23,8 +23,14 @@ for (let product of products) {
                     discount = .1;
                     break;
                     
-        default:
+        case "Default":
             discount = 0;
+            break;
     }
-}
+
+    let promoPrice = product.price * (1 - discount);
+    product.promoPrice = promoPrice;
+    console.log(`The promo price for ${product.name} is $${promoPrice.toFixed(2)}`);
+
+    }
 
