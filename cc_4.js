@@ -1,13 +1,14 @@
 let products = [
     { name: "Laptop", category: "Electronics", price: 850, inventory: 30 },
     { name: "Hoodie", category: "Apparel", price: 60, inventory: 100 },
-    { name: "Potato", category: "Groceries", price: 600, inventory: 50 },
+    { name: "Potato", category: "Groceries", price: 6, inventory: 50 },
     { name: "Vacuum", category: "Household", price: 200, inventory: 20 },
     { name: "ChapStick", category: "Default", price: 5, inventory: 200 },
 ]
 //Step 2 done
-let subtotal = 0;
+
 for (let product of products) {
+    
     let discount = 0;
     switch (product.category) {
         case "Electronics":
@@ -34,22 +35,36 @@ for (let product of products) {
     }
 
 
-let customerTypes = ["regular", "senior", "student"];
+let customerTypes = ["regular", "senior", "student"]; 
 
-for (let customerType of customerTypes) {
-    let total = subtotal;
+for (let i = 0; i < customerTypes.length; i++) {
+  let customerType = customerTypes[i];
+  let subtotal = 0;                
+  let extraDiscount = 0;           
 
-    if (customerType === "student") {
-        total *= 0.95; 
-    } else if (customerType === "senior") {
-        total *= 0.93; 
-    } else {
-       
+  
+  if (customerType === "student") {
+    extraDiscount = 0.05;
+  } else if (customerType === "senior") {
+    extraDiscount = 0.07;
+  } else {
+    extraDiscount = 0;
+  }
+
+
+  for (let product of products) {
+    if (product.inventory > 0) {   
+      subtotal += product.promoPrice;
+      product.inventory -= 1;     
     }
-    
-    console.log(`Final total for ${customerType}: $${total.toFixed(2)}`);
-}
+  }
 
+ 
+  let total = subtotal * (1 - extraDiscount);
+
+  
+  console.log(`Customer ${i + 1} (${customerType}) total: $${total.toFixed(2)}`);
+}
 
 
 
