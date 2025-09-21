@@ -66,6 +66,17 @@ for (let i = 0; i < customerTypes.length; i++) {
   console.log(`Customer ${i + 1} (${customerType}) total: $${total.toFixed(2)}`);
 }
 
+//Step 5 done. DONT FORGET TO DOUBLECHECK
+
+let sampleProduct = products[0];  
+
+console.log("\nDetails of one product after discounts:");
+for (let key in sampleProduct) {
+  if (Object.hasOwn(sampleProduct, key)) {
+    console.log(`${key}: ${sampleProduct[key]}`);
+  }
+}
+
 
 
 
