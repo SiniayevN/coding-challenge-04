@@ -77,6 +77,19 @@ for (let key in sampleProduct) {
   }
 }
 
+//Step 6 done
+
+
+//Now doing step 7
+console.log("\nAll products after inventory update:");
+for (let product of products) {
+  for (let [key, value] of Object.entries(product)) {
+    console.log(`${key}: ${value}`);
+  }
+  console.log("----"); 
+}
+
+//If you read it, have a nice day and tell me is this task hard just for me or for everyone?
 
 
 
